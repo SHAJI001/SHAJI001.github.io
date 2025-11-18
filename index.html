@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sahro Haji | Data Analytics Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #1f4f7b;   /* deep corporate blue */
+      --secondary: #4f6f8f; /* muted blue-grey */
+      --accent: #0f9bd7;    /* lighter blue highlight */
+      --bg: #f5f7fa;
+      --card-bg: #ffffff;
+      --text-main: #1a1a1a;
+      --text-muted: #555555;
+      --border: #dde3ec;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #ffffff;
+      padding: 24px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      margin-left: 16px;
+      color: #e8f3ff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      padding: 32px 0 16px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #e1ecff;
+      margin-bottom: 16px;
+      max-width: 520px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      color: #f5f8ff;
+      white-space: nowrap;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary, .btn-outline {
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-card {
+      background: rgba(8, 28, 58, 0.35);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.85rem;
+    }
+
+    .hero-card-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .hero-card-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      color: #d2e2ff;
+    }
+
+    main {
+      padding: 24px 16px 40px 16px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2.section-title {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 5px 12px rgba(15, 35, 60, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      color: var(--primary);
+    }
+
+    .card small {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e6edf7;
+      color: var(--secondary);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      margin: 6px 0 10px 0;
+    }
+
+    .card a {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    ul {
+      padding-left: 18px;
+      font-size: 0.95rem;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .contact-list li {
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .contact-list a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 12px 16px 20px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / HERO -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="nav-title">Sahro Haji</div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <h1 class="hero-title">Data Analytics Portfolio</h1>
+            <p class="hero-subtitle">
+              Data analytics student with experience in operations, reporting, and workflow optimization.
+              I enjoy turning raw data into clear, business-focused insights that support smarter decisions.
+            </p>
+            <div class="hero-badges">
+              <span class="badge">Data Analytics</span>
+              <span class="badge">SQL & Excel</span>
+              <span class="badge">Reporting & Dashboards</span>
+            </div>
+            <div class="hero-cta">
+              <a class="btn-primary" href="#projects">View Projects</a>
+              <a class="btn-outline" href="#contact">Get in Touch</a>
+            </div>
+          </div>
+          <div>
+            <div class="hero-card">
+              <div class="hero-card-title">Portfolio Snapshot</div>
+              <div class="hero-card-item">
+                <span>Projects</span><span>5</span>
+              </div>
+              <div class="hero-card-item">
+                <span>Tools</span><span>SQL · Excel · Python · Tableau/Power BI</span>
+              </div>
+              <div class="hero-card-item">
+                <span>Focus Areas</span><span>Business ops · Digital finance · Reporting</span>
+              </div>
+              <p style="margin-top: 10px; color:#eef3ff;">
+                Below are curated analytics projects that highlight my skills in data cleaning, analysis,
+                and communicating results to non-technical stakeholders.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="container">
+      <!-- ABOUT -->
+      <section id="about">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">
+          I am a data analytics student with 7+ years of experience in operations, client support, and reporting.
+          I enjoy working with data to understand patterns, improve processes, and support business decisions.
+        </p>
+        <div class="two-col">
+          <div>
+            <p>
+              Through my previous roles, I have supported customer operations, documented workflows, and analyzed
+              inquiry patterns to improve efficiency. I am now transitioning into data analytics, with a focus on
+              building dashboards, using SQL to explore data, and presenting findings in a clear, structured way.
+            </p>
+            <p>
+              My areas of interest include digital finance, monetary systems, and how data can support more transparent
+              and fair decision-making in both public and private organizations.
+            </p>
+          </div>
+          <div>
+            <h3 style="font-size:1rem; color:var(--secondary); margin-bottom:6px;">Core strengths</h3>
+            <ul>
+              <li>Structured thinking and attention to detail</li>
+              <li>Experience supporting cross-functional teams</li>
+              <li>Ability to translate data into clear summaries</li>
+              <li>Curiosity about financial systems and policy</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          Selected data analytics projects demonstrating data cleaning, exploration, visualization, and business-focused storytelling.
+          Each project includes a short case study and repository structure.
+        </p>
+
+        <div class="card-grid">
+          <!-- Project 1 -->
+          <article class="card">
+            <h3>Retail Sales Performance Dashboard</h3>
+            <small>Excel / Google Sheets · Descriptive Analytics</small>
+            <div class="pill-row">
+              <span class="pill">Data cleaning</span>
+              <span class="pill">Pivot tables</span>
+              <span class="pill">KPI dashboard</span>
+            </div>
+            <p>
+              Analyzed transaction-level retail sales data to understand revenue, profit, and order volume by region,
+              category, and time period. Built an interactive dashboard to help business users monitor performance.
+            </p>
+            <a href="https://github.com/yourusername/retail-sales-dashboard" target="_blank">
+              View project on GitHub
+            </a><br/>
+            <a href="https://github.com/yourusername/retail-sales-dashboard/blob/main/CASE_STUDY.md" target="_blank">
+              Read case study
+            </a>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="card">
+            <h3>Customer & Orders SQL Analysis</h3>
+            <small>SQL · Reporting</small>
+            <div class="pill-row">
+              <span class="pill">JOINS</span>
+              <span class="pill">Aggregations</span>
+              <span class="pill">Cohort-style views</span>
+            </div>
+            <p>
+              Used SQL to explore a relational database of customers, orders, and products. Created queries to segment customers,
+              identify high-value groups, and track order behavior over time.
+            </p>
+            <a href="https://github.com/yourusername/sql-customer-orders-analysis" target="_blank">
+              View SQL scripts
+            </a><br/>
+            <a href="https://github.com/yourusername/sql-customer-orders-analysis/blob/main/CASE_STUDY.md" target="_blank">
+              Read case study
+            </a>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="card">
+            <h3>Data Cleaning & Visualization (Python)</h3>
+            <small>Python · pandas · Matplotlib</small>
+            <div class="pill-row">
+              <span class="pill">Missing data</span>
+              <span class="pill">Feature engineering</span>
+              <span class="pill">Visual analysis</span>
+            </div>
+            <p>
+              Cleaned a real-world dataset with missing values and inconsistent entries. Used Python to profile the data, handle
+              missing values, and create visualizations to highlight key trends and distributions.
+            </p>
+            <a href="https://github.com/yourusername/python-data-cleaning-visuals" target="_blank">
+              View notebook
+            </a><br/>
+            <a href="https://github.com/yourusername/python-data-cleaning-visuals/blob/main/CASE_STUDY.md" target="_blank">
+              Read case study
+            </a>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="card">
+            <h3>Digital Finance Trends Analysis</h3>
+            <small>Economics · Time Series · Visualization</small>
+            <div class="pill-row">
+              <span class="pill">Macroeconomic data</span>
+              <span class="pill">Trend analysis</span>
+              <span class="pill">Storytelling</span>
+            </div>
+            <p>
+              Combined public economic and digital asset datasets to explore how digital finance indicators have evolved over time.
+              Focused on simple, transparent charts and written explanations for non-technical readers.
+            </p>
+            <a href="https://github.com/yourusername/digital-finance-trends" target="_blank">
+              View project on GitHub
+            </a><br/>
+            <a href="https://github.com/yourusername/digital-finance-trends/blob/main/CASE_STUDY.md" target="_blank">
+              Read case study
+            </a>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="card">
+            <h3>Executive KPI Dashboard (Tableau/Power BI)</h3>
+            <small>BI Tool · Interactive Dashboard</small>
+            <div class="pill-row">
+              <span class="pill">KPI design</span>
+              <span class="pill">Filters & slicers</span>
+              <span class="pill">Executive summary</span>
+            </div>
+            <p>
+              Built a multi-page dashboard for leadership, summarizing sales, customer, and operations metrics.
+              Focused on simple visual layouts and clear takeaways for decision-makers.
+            </p>
+            <a href="https://github.com/yourusername/executive-kpi-dashboard" target="_blank">
+              View project files
+            </a><br/>
+            <a href="#" target="_blank">
+              (Optional) View published dashboard
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">
+          Technical and analytical skills used across the projects in this portfolio.
+        </p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>Data Analysis</h3>
+            <ul>
+              <li>Descriptive statistics and trend analysis</li>
+              <li>Data cleaning, validation, and profiling</li>
+              <li>Segmentation and simple cohort-style views</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Tools & Technologies</h3>
+            <ul>
+              <li>Excel / Google Sheets (pivot tables, dashboards)</li>
+              <li>SQL (SELECT, JOIN, GROUP BY, basic window logic)</li>
+              <li>Python (pandas, basic visualization)</li>
+              <li>Tableau or Power BI (interactive dashboards)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Business & Communication</h3>
+            <ul>
+              <li>Translating data into clear summaries</li>
+              <li>Creating simple visuals for stakeholders</li>
+              <li>Documenting processes and reporting findings</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">
+          I am open to internship and entry-level data analytics opportunities, especially in roles that combine
+          data, operations, and financial systems.
+        </p>
+        <div class="two-col">
+          <div>
+            <ul class="contact-list">
+              <li><strong>Name:</strong> Sahro Haji</li>
+              <li><strong>Location:</strong> Louisville, KY (USA)</li>
+              <li>
+                <strong>Email:</strong>
+                <a href="mailto:Sahrohaji7@gmail.com">Sahrohaji7@gmail.com</a>
+              </li>
+              <li>
+                <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/sahro-haji" target="_blank">
+                  linkedin.com/in/sahro-haji
+                </a>
+              </li>
+              <!-- Optional resume link -->
+              <!-- <li><strong>Resume:</strong> <a href="RESUME_LINK_HERE" target="_blank">Download PDF</a></li> -->
+            </ul>
+          </div>
+          <div>
+            <p style="font-size:0.95rem;">
+              If you would like to discuss my projects or potential opportunities, please feel free to contact me
+              via email or LinkedIn. I am especially interested in roles that involve data-driven decision support,
+              reporting, and process improvement.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> · Portfolio of Sahro Haji
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
