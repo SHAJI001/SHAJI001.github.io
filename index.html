@@ -12,135 +12,517 @@
             --bg: #f5f7fa;
             --card-bg: #ffffff;
             --text-main: #1a1a1a;
-            --text-muted: #555;
+            --text-muted: #555555;
             --border: #dde3ec;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Segoe UI, sans-serif; }
-        body { background: var(--bg); color: var(--text-main); line-height: 1.6; }
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 5rem 2rem; color: #fff; }
-        nav { display: flex; gap: 2rem; justify-content: flex-end; margin-bottom: 1rem; }
-        nav a { color: #fff; text-decoration: none; font-weight: 600; }
-        .hero { max-width: 900px; margin: auto; }
-        h1 { font-size: 2.8rem; margin-bottom: 1rem; }
-        .pill-row { display: flex; gap: .5rem; margin: 1rem 0; flex-wrap: wrap; }
-        .pill { background: rgba(255,255,255,0.2); padding: .3rem .8rem; border-radius: 20px; font-size: .8rem; }
-        .btn { display: inline-block; padding: .6rem 1.2rem; background: #fff; color: var(--primary); border-radius: 25px; text-decoration: none; margin-right: .5rem; font-weight: 600; }
-        section { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
-        .section-title { font-size: 1.8rem; margin-bottom: 1.2rem; }
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .card-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-        .card { background: var(--card-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); }
-        footer { text-align: center; padding: 2rem; color: var(--text-muted); }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* HEADER / HERO */
+
+        header {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #ffffff;
+            padding: 2rem 2rem 4.5rem 2rem;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .download-btn {
+            padding: 0.6rem 1.4rem;
+            background: #ffffff;
+            color: var(--primary);
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-left: 1rem;
+        }
+
+        .social-links a {
+            font-size: 1.3rem;
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            padding: 1rem 0 2rem 0;
+        }
+
+        .hero-photo {
+            flex: 0 0 160px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-content h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #e5ecff;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-content p {
+            max-width: 640px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.2rem 0;
+        }
+
+        .pill {
+            background: rgba(255,255,255,0.18);
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn-primary,
+        .btn-outline {
+            display: inline-block;
+            padding: 0.65rem 1.4rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: var(--primary);
+        }
+
+        .btn-outline {
+            border: 1px solid #ffffff;
+            color: #ffffff;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 3.5rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+            gap: 2.5rem;
+        }
+
+        /* PROJECTS */
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 1.75rem 1.75rem 1.5rem 1.75rem;
+            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .project-pill {
+            font-size: 0.8rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            background: #eef2ff;
+            color: #374151;
+        }
+
+        .project-links a {
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 0.8rem;
+            margin-top: 0.3rem;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skills-card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 1.5rem 1.7rem;
+        }
+
+        .skills-card h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .skills-card ul {
+            padding-left: 1.1rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* CONTACT */
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .contact-details p {
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-details a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 1.5rem 1.7rem;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.7rem 0.9rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+
+        .contact-form button {
+            margin-top: 0.4rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 999px;
+            border: none;
+            background: var(--primary);
+            color: #ffffff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem 2rem 1rem;
+            color: #ffffff;
+            background: var(--primary);
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-photo {
+                order: 0;
+            }
+            .hero-content {
+                order: 1;
+            }
+            .hero-content p {
+                margin: 0 auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .two-col,
+            .skills-grid,
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+            .top-bar {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 1.5rem 1rem 3.5rem 1rem;
+            }
+            section {
+                padding: 2.5rem 1rem;
+            }
+        }
     </style>
 </head>
 <body>
+
 <header>
-    <nav>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
-        <div style="position:absolute; right:40px; top:30px; display:flex; gap:1rem;">
-            <a href="https://linkedin.com/in/sahro-haji" target="_blank" style="color:white; font-size:1.4rem; text-decoration:none;">🔗</a>
-            <a href="https://github.com/SHAJI001" target="_blank" style="color:white; font-size:1.4rem; text-decoration:none;">💻</a>
+    <div class="top-bar">
+        <a href="resume.pdf" class="download-btn" download>Download Resume</a>
+
+        <nav>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/sahro-haji" target="_blank" aria-label="LinkedIn">🔗</a>
+                <a href="https://github.com/SHAJI001" target="_blank" aria-label="GitHub">💻</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="hero">
+        <div class="hero-photo">
+            <img src="IMG_3771.jpg" alt="Sahro Haji headshot">
         </div>
-        <a href="resume.pdf" class="btn" download>Download Resume</a>
-    <div class="hero" style="display:flex; align-items:center; justify-content:space-between; gap:2rem;">
-        <div style="max-width:600px;">
-            <h2 style="margin:0;">Sahro Haji</h2>
-            <p style="font-size:1rem; color:#eaeaea; margin-bottom:1.5rem;">Data Analytics Student · Operations & Reporting Experience</p>
-        <img src="IMG_3771.jpg" alt="Sahro Haji Photo" style="width:140px; height:140px; border-radius:50%; object-fit:cover; border:4px solid #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.2);">
-        <h2>Sahro Haji</h2>
-        <h1>Data Analytics Portfolio</h1>
-        <p>
-            Data analytics student with experience in operations, reporting, workflow optimization, 
-            and dashboard development. I transform raw data into clear, actionable insights that help businesses operate smarter.
-        </p>
-        <div class="pill-row">
-            <span class="pill">Data Analytics</span>
-            <span class="pill">SQL & Excel</span>
-            <span class="pill">Reporting & Dashboards</span>
+
+        <div class="hero-content">
+            <h1>Data Analytics Portfolio</h1>
+            <h2>Sahro Haji</h2>
+            <p class="hero-subtitle">Data Analytics Student · Operations &amp; Reporting Experience</p>
+
+            <p>
+                I’m a data analytics student with 7+ years of experience in operations, reporting,
+                and workflow optimization. I enjoy turning raw data into clear, actionable insights that
+                help businesses operate smarter.
+            </p>
+
+            <div class="pill-row">
+                <span class="pill">Data Analytics</span>
+                <span class="pill">SQL &amp; Excel</span>
+                <span class="pill">Reporting &amp; Dashboards</span>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <a href="#contact" class="btn-outline">Get in Touch</a>
+            </div>
         </div>
-        <a class="btn" href="#projects">View Projects</a>
-        <a class="btn" href="#contact">Get in Touch</a>
     </div>
 </header>
-<section id="photo" style="text-align:center; padding:3rem 1rem;">
-    <img src="IMG_3771.jpg" alt="Sahro Haji Photo" style="width:180px; height:180px; border-radius:50%; object-fit:cover; border:4px solid var(--primary); box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-    <h2 style="margin-top:1rem;">Sahro Haji</h2>
-</section>
 
 <section id="about">
     <h2 class="section-title">About</h2>
     <div class="two-col">
         <p>
-            I am a data analytics student transitioning from 7+ years in operations and client support. My experience includes analyzing inquiry patterns, documenting workflows, and improving process efficiency. 
-            I now focus on exploring data using SQL, Python, Excel, and visualization tools to create dashboards and analytical reports.
+            I am a data analytics student transitioning from 7+ years in operations and client
+            support. My experience includes analyzing inquiry patterns, documenting workflows,
+            and improving process efficiency. I now focus on exploring data using SQL, Python,
+            Excel, and visualization tools to create dashboards and analytical reports.
             <br><br>
-            I am passionate about digital finance, financial systems, and using data to help organizations make transparent, informed decisions.
+            My interests include digital finance, financial systems, and how data can support
+            more transparent and informed decision-making in both public and private organizations.
         </p>
         <div>
             <h3>Core Strengths</h3>
             <ul>
                 <li>Structured analytical thinking and attention to detail</li>
-                <li>Ability to summarize complex data clearly</li>
-                <li>Cross-functional team experience</li>
-                <li>Strong curiosity about financial systems and policy</li>
+                <li>Ability to summarize complex data clearly for stakeholders</li>
+                <li>Experience collaborating with cross-functional teams</li>
+                <li>Curiosity about financial systems, data, and policy</li>
             </ul>
         </div>
     </div>
 </section>
 
 <section id="projects">
-    <h2 class="section-title">Projects (<span id='project-count'>1</span>)</h2>
-    <p>New projects will be added as they are completed.</p>
+    <h2 class="section-title">Projects (<span id="project-count">1</span>)</h2>
+    <p class="section-subtitle">
+        Selected analytics projects showcasing data cleaning, exploration, visualization, and
+        business-focused insights. New projects will be added as they are completed.
+    </p>
 
     <div class="card-grid">
-        <article class="card">
-            <img src="thumbnail1.png" alt="Project Thumbnail" style="width:100%; border-radius:8px; margin-bottom:1rem;" />
-            <h3>Retail Sales Performance Dashboard</h3>
-            <small>Excel / Google Sheets · Descriptive Analytics</small>
-            <div class="pill-row">
-                <span class="pill">Data cleaning</span>
-                <span class="pill">Pivot tables</span>
-                <span class="pill">KPI dashboard</span>
+        <!-- Project 1 -->
+        <article class="card project-card">
+            <img src="https://raw.githubusercontent.com/SHAJI001/retail-sales-dashboard/main/images/Screenshot%202025-11-19%20123601.png"
+                 alt="Retail Sales Dashboard screenshot">
+
+            <div class="project-body">
+                <div class="project-title">Retail Sales Performance Dashboard</div>
+                <div class="project-meta">Excel / Google Sheets · Descriptive Analytics</div>
+
+                <div class="project-pills">
+                    <span class="project-pill">Data cleaning</span>
+                    <span class="project-pill">Pivot tables</span>
+                    <span class="project-pill">KPI dashboard</span>
+                </div>
+
+                <p>
+                    Analyzed retail sales data to uncover revenue, profit, and volume patterns
+                    across regions and categories. Built an interactive dashboard to support
+                    data-driven business decisions.
+                </p>
+
+                <div class="project-links">
+                    <a href="https://github.com/SHAJI001/retail-sales-dashboard" target="_blank">
+                        View project on GitHub
+                    </a>
+                    <a href="https://github.com/SHAJI001/retail-sales-dashboard" target="_blank">
+                        Read case study
+                    </a>
+                </div>
             </div>
-            <p>
-                Analyzed retail sales data to uncover revenue, profit, and volume patterns across regions and categories. Built an interactive dashboard to support data-driven business decisions.
-            </p>
-            <a href="https://github.com/SHAJI001/retail-sales-dashboard" target="_blank">View project on GitHub</a><br>
-            <a href="https://github.com/SHAJI001/retail-sales-dashboard" target="_blank">Read case study</a>
         </article>
     </div>
 </section>
 
 <section id="skills">
     <h2 class="section-title">Skills</h2>
-    <div class="two-col">
-        <div class="card" style="transition:0.3s;" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='none'; this.style.boxShadow='none';">
+
+    <div class="skills-grid">
+        <div class="skills-card">
             <h3>Data Analysis</h3>
             <ul>
-                <li>Trend analysis & descriptive statistics</li>
+                <li>Descriptive statistics and trend analysis</li>
                 <li>Data profiling, validation, and cleaning</li>
                 <li>Segmentation and simple cohort-style analysis</li>
             </ul>
         </div>
 
-        <div class="card">
-            <h3>Tools & Technologies</h3>
+        <div class="skills-card">
+            <h3>Tools &amp; Technologies</h3>
             <ul>
-                <li>Excel / Google Sheets (Pivot tables, dashboards)</li>
+                <li>Excel / Google Sheets (pivot tables, dashboards)</li>
                 <li>SQL (SELECT, JOIN, GROUP BY)</li>
                 <li>Python (pandas, matplotlib)</li>
             </ul>
         </div>
 
-        <div class="card">
-            <h3>Business & Communication</h3>
+        <div class="skills-card">
+            <h3>Business &amp; Communication</h3>
             <ul>
                 <li>Translating data into stakeholder-ready summaries</li>
-                <li>Creating visuals and reports</li>
-                <li>Process documentation & workflow optimization</li>
+                <li>Creating visuals and simple dashboards for decision-makers</li>
+                <li>Process documentation and workflow optimization</li>
             </ul>
         </div>
     </div>
@@ -148,34 +530,42 @@
 
 <section id="contact">
     <h2 class="section-title">Contact</h2>
-    <p>If you’d like to discuss opportunities or projects, feel free to reach out.</p>
-    <p><strong>Name:</strong> Sahro Haji<br>
-       <strong>Location:</strong> Louisville, KY (USA)<br>
-       <strong>Email:</strong> Sahrohaji7@gmail.com<br>
-       <strong>LinkedIn:</strong> linkedin.com/in/sahro-haji
-    </p>
+
+    <div class="contact-layout">
+        <div class="contact-details">
+            <p>If you’d like to discuss opportunities, projects, or collaborations, feel free to reach out.</p>
+            <br>
+            <p><strong>Name:</strong> Sahro Haji</p>
+            <p><strong>Location:</strong> Louisville, KY (USA)</p>
+            <p><strong>Email:</strong> <a href="mailto:Sahrohaji7@gmail.com">Sahrohaji7@gmail.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sahro-haji" target="_blank">linkedin.com/in/sahro-haji</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/SHAJI001" target="_blank">github.com/SHAJI001</a></p>
+        </div>
+
+        <div class="contact-form">
+            <h3 style="margin-bottom:0.75rem;">Contact Me</h3>
+            <form action="mailto:Sahrohaji7@gmail.com" method="POST" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
 </section>
 
-<section id="contact-form">
-    <h2 class="section-title">Contact Me</h2>
-    <form action="mailto:Sahrohaji7@gmail.com" method="POST" enctype="text/plain" style="display:flex;flex-direction:column;gap:1rem;max-width:500px;margin:auto;">
-        <input type="text" name="name" placeholder="Your Name" required style="padding:0.8rem; border-radius:6px; border:1px solid var(--border);" />
-        <input type="email" name="email" placeholder="Your Email" required style="padding:0.8rem; border-radius:6px; border:1px solid var(--border);" />
-        <textarea name="message" placeholder="Your Message" rows="5" required style="padding:0.8rem; border-radius:6px; border:1px solid var(--border);"></textarea>
-        <button type="submit" class="btn" style="background:var(--primary);color:#fff;">Send Message</button>
-    </form>
-</section>
 <footer>
-    © 2025 · Portfolio of Sahro Haji
+    © 2025 · Sahro Haji · Data Analytics Portfolio
 </footer>
 
 <script>
-    // Auto project count
-    const count = document.querySelectorAll('#projects .card').length;
-    document.getElementById('project-count').textContent = count;
+    // Auto-count projects
+    const projectCount = document.querySelectorAll('.project-card').length;
+    const countSpan = document.getElementById('project-count');
+    if (countSpan) {
+        countSpan.textContent = projectCount;
+    }
 </script>
-<footer style="text-align:center; padding:2rem; background:#1f447b; color:white; margin-top:3rem;">
-    © 2025 · Sahro Haji · Data Analytics Portfolio
-</footer>
+
 </body>
 </html>
