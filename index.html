@@ -194,6 +194,22 @@
          #about p {
         max-width: 600px;
     }
+        .about-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.6rem 1.8rem;
+}
+
+.about-card h3 {
+    margin-bottom: 0.6rem;
+    font-size: 1.15rem;
+}
+
+.about-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
 
         /* PROJECTS */
 
@@ -437,20 +453,30 @@
 
 <section id="about">
     <h2 class="section-title">About</h2>
+
     <div class="two-col">
-        <p>
-            I am an early-career data analyst with 7+ years of experience in operations, reporting,
-    and process improvement. My experience includes analyzing inquiry patterns, documenting workflows,
-    and improving process efficiency, including ad-hoc analysis, trend identification,
-    and data validation to support operational decision-making. I now focus on exploring data
-    using SQL, Python, Excel, and visualization tools to create dashboards and analytical reports.
-</p>
-            <br><br>
-            My interests include digital finance, financial systems, and how data can support
-            more transparent and informed decision-making in both public and private organizations.
-        </p>
-        <div>
-            <h3>Core Strengths</h3>
+
+        <!-- LEFT COLUMN -->
+        <div class="about-card">
+            <h3>Professional Summary</h3>
+            <p>
+                I am an early-career data analyst with 7+ years of experience in operations, reporting,
+                and process improvement. My experience includes analyzing inquiry patterns, documenting workflows,
+                and improving process efficiency, including ad-hoc analysis, trend identification,
+                and data validation to support operational decision-making. I now focus on exploring data
+                using SQL, Python, Excel, and visualization tools to create dashboards and analytical reports.
+            </p>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="about-card">
+            <h3>Areas of Interest</h3>
+            <p>
+                My interests include digital finance, financial systems, and how data can support
+                more transparent and informed decision-making in both public and private organizations.
+            </p>
+
+            <h3 style="margin-top:1.4rem;">Core Strengths</h3>
             <ul>
                 <li>Structured analytical thinking and attention to detail</li>
                 <li>Ability to summarize complex data clearly for stakeholders</li>
@@ -458,6 +484,7 @@
                 <li>Curiosity about financial systems, data, and policy</li>
             </ul>
         </div>
+
     </div>
 </section>
 
